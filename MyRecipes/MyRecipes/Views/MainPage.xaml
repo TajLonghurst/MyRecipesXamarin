@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyRecipes.MainPage">
+
+
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="My Recipes" TextColor="White" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" FontSize="18" FontAttributes="Bold"></Label>
+            <Button BackgroundColor="Transparent" HorizontalOptions="EndAndExpand" TextColor="White" VerticalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="18" Text="Add" Clicked="Button_Clicked"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+    <ListView x:Name="MainListView"  
+             HasUnevenRows="True">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Grid Padding="10">
+                        <Frame>
+                            <StackLayout>
+                                <Label FontSize="Large" Text="{Binding DihsesName}"/>
+                                <Label FontSize="Small" Text="{Binding CreatedBy}"/>
+                            </StackLayout>
+                        </Frame>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+<!--
+    <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand">
+        <Label Text="{Binding CreatedBy}"/>
+    </StackLayout>
+-->
+</ContentPage>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyRecipes.Views.EditPage">
+
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Edit Recipes" TextColor="White" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" FontSize="18" FontAttributes="Bold"></Label>
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <StackLayout Padding="20,40,20,40">
+            <Entry Placeholder="Dish Name" x:Name="Name" Margin="0,0,0,30" Text=""></Entry>
+            <Entry Placeholder="Created By" x:Name="CreatedBy" Margin="0,0,0,30" Text=""></Entry>
+            <Editor Placeholder="Ingredients" x:Name="Ingredients" Margin="0,0,0,30" HeightRequest="100"></Editor>
+            <Editor Placeholder="Cooking Steps" x:Name="CookingSteps" Margin="0,0,0,30" HeightRequest="100"></Editor>
+            <Button Text="Delete"></Button>
+            <Button Text="Submit" Clicked="OnButtonClicked"></Button>
+           
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
