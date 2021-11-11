@@ -11,12 +11,12 @@
 
     <ContentPage.Content>
         <StackLayout Padding="20,40,20,40">
-            <Entry Placeholder="Dish Name" x:Name="Name" Margin="0,0,0,30" Text=""></Entry>
-            <Entry Placeholder="Created By" x:Name="CreatedBy" Margin="0,0,0,30" Text=""></Entry>
-            <Editor Placeholder="Ingredients" x:Name="Ingredients" Margin="0,0,0,30" HeightRequest="100"></Editor>
-            <Editor Placeholder="Cooking Steps" x:Name="CookingSteps" Margin="0,0,0,30" HeightRequest="100"></Editor>
-            <Button Text="Delete"></Button>
-            <Button Text="Submit" Clicked="OnButtonClicked"></Button>
+            <Entry Placeholder="Dish Name" x:Name="Name" Margin="0,0,0,30" Text="{Binding DihsesName}"></Entry>
+            <Entry Placeholder="Created By" x:Name="CreatedBy" Margin="0,0,0,30" Text="{Binding CreatedBy}"></Entry>
+            <Editor Placeholder="Ingredients" x:Name="Ingredients" Margin="0,0,0,30" HeightRequest="100" Text="{Binding Ingredients}"></Editor>
+            <Editor Placeholder="Cooking Steps" x:Name="CookingSteps" Text="{Binding Steps}" Margin="0,0,0,30" HeightRequest="100"></Editor>
+            <Button Text="Delete" Clicked="DeleteBtnClicked"></Button>
+            <Button Text="Submit" Clicked="SavedBtnClicked"></Button>
            
         </StackLayout>
     </ContentPage.Content>

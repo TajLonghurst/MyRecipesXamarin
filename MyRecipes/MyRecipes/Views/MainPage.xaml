@@ -11,26 +11,18 @@
         </StackLayout>
     </NavigationPage.TitleView>
 
-    <ListView x:Name="MainListView"  
-             HasUnevenRows="True">
-        <ListView.ItemTemplate>
+    <CollectionView SelectionChanged="MainListView_SelectionChanged" x:Name="MainListView" SelectionMode="Single">
+        <CollectionView.ItemTemplate>
             <DataTemplate>
-                <ViewCell>
-                    <Grid Padding="10">
-                        <Frame>
-                            <StackLayout>
-                                <Label FontSize="Large" Text="{Binding DihsesName}"/>
-                                <Label FontSize="Small" Text="{Binding CreatedBy}"/>
-                            </StackLayout>
-                        </Frame>
-                    </Grid>
-                </ViewCell>
+                <Grid Padding="10">
+                    <Frame>
+                        <StackLayout>
+                            <Label FontSize="Large" Text="{Binding DihsesName}"/>
+                            <Label FontSize="Small" Text="{Binding CreatedBy}"/>
+                        </StackLayout>
+                    </Frame>
+                </Grid>
             </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
-<!--
-    <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand">
-        <Label Text="{Binding CreatedBy}"/>
-    </StackLayout>
--->
+        </CollectionView.ItemTemplate>
+    </CollectionView>
 </ContentPage>

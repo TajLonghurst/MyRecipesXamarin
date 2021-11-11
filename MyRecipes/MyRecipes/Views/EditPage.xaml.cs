@@ -10,32 +10,64 @@ using Xamarin.Forms.Xaml;
 
 namespace MyRecipes.Views
 {
+
+
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EditPage : ContentPage
     {
-        public EditPage()
+
+        public EditPage(Recipes recipes)
         {
             InitializeComponent();
+            BindingContext = recipes;
+
+            recipe = recipes;
         }
 
-        async void OnButtonClicked(object sender, EventArgs e)
+        public Recipes recipe { get; set; }
+
+
+        async void SavedBtnClicked(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(Name.Text))
             {
-                await App.RecipesData.SavePersonAsync(new Recipes
-                {
-                    DihsesName = Name.Text,
-                    CreatedBy = CreatedBy.Text,
-                    Steps = CookingSteps.Text,
-                    Ingredents = Ingredients.Text
-                }) ;
+                recipe.DihsesName = Name.Text;
+                recipe.CreatedBy = CreatedBy.Text;
+                recipe.Steps = CookingSteps.Text;
+                recipe.Ingredients = Ingredients.Text;
 
-                Name.Text = string.Empty;
-                CreatedBy.Text = string.Empty;
-                CookingSteps.Text = string.Empty;
-                Ingredients.Text = string.Empty;
             }
+
+            if(recipe.ID > 0)
+            {  
+                Updates();
+            }
+            else
+            {
+                Save();
+            }
+
+            await Navigation.PopAsync();
         }
 
+        public async void Updates()
+        {
+            await App.RecipesData.UpdateRecipesData(recipe);
+        }
+
+        public async void Save()
+        {
+            await App.RecipesData.SaveRecipeToData(recipe);
+        }
+        
+
+        async void DeleteBtnClicked(object sender, EventArgs e)
+        {
+            await App.RecipesData.DeleteRecipeAsync(recipe);
+
+            //Leaves page, As when deleting the page there's not point staying
+            await Navigation.PopAsync();
+
+        }
     }
 }

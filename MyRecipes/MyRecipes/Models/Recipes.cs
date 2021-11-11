@@ -8,10 +8,10 @@ namespace MyRecipes.Models
     public class Recipes
     {
         [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
+        public int ID { get; set; }
         public string DihsesName { get; set; }
         public string CreatedBy { get; set; }
-        public string Ingredents { get; set; }
+        public string Ingredients { get; set; }
         public string Steps { get; set; }
     }
 }
